@@ -2,6 +2,13 @@
 
 import { useEffect, useRef } from "react";
 
+/* Pure math helpers — outside component for stable references */
+const mapRange = (val: number, inMin: number, inMax: number, outMin: number, outMax: number) =>
+  outMin + (outMax - outMin) * Math.min(Math.max((val - inMin) / (inMax - inMin), 0), 1);
+
+const lerp = (start: number, end: number, factor: number) =>
+  start + (end - start) * factor;
+
 export default function OriginSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
@@ -14,17 +21,12 @@ export default function OriginSection() {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const headingWhiteRef = useRef<HTMLHeadingElement>(null);
   const rafRef = useRef<number | null>(null);
+  const isVisibleRef = useRef(true);
 
   const targetProgress = useRef(0);
   const currentProgress = useRef(0);
 
-  const mapRange = (val: number, inMin: number, inMax: number, outMin: number, outMax: number) => {
-    return outMin + (outMax - outMin) * Math.min(Math.max((val - inMin) / (inMax - inMin), 0), 1);
-  };
 
-  const lerp = (start: number, end: number, factor: number) => {
-    return start + (end - start) * factor;
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +46,10 @@ export default function OriginSection() {
     handleScroll();
 
     const animate = () => {
+      if (!isVisibleRef.current) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
       // Smooth lerp - increased to 0.12 for faster responsiveness
       currentProgress.current = lerp(currentProgress.current, targetProgress.current, 0.12);
       const p = currentProgress.current;
@@ -125,6 +131,17 @@ export default function OriginSection() {
       window.removeEventListener("scroll", handleScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
+  }, []);
+
+  /* Pause animation loop when section is off-screen */
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (

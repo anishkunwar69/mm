@@ -22,6 +22,7 @@ export default function TransitionCtaSection() {
   const crosshairRef = useRef<HTMLDivElement>(null);
 
   const rafRef = useRef<number | null>(null);
+  const isVisibleRef = useRef(true);
   const targetScroll = useRef(0);
   const currentScroll = useRef(0);
 
@@ -49,6 +50,10 @@ export default function TransitionCtaSection() {
     };
 
     const animate = () => {
+      if (!isVisibleRef.current) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
       currentScroll.current += (targetScroll.current - currentScroll.current) * 0.08;
       const p = currentScroll.current;
 
@@ -150,13 +155,24 @@ export default function TransitionCtaSection() {
     };
   }, []);
 
+  /* Pause animation loop when section is off-screen */
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section ref={containerRef} style={{ height: "400vh" }} className="relative w-full bg-spider-black selection:bg-spider-yellow selection:text-spider-black">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-spider-black">
 
         {/* MILES CTA IMAGE LAYER */}
         <div ref={imageLayerRef} className="absolute inset-0 z-0 will-change-transform origin-center">
-          <img src="/assets/cta.png" alt="Miles holding out mask" className="w-full h-full object-cover object-center" />
+          <img src="/assets/cta.png" alt="Miles holding out mask" loading="lazy" decoding="async" className="w-full h-full object-cover object-center" />
 
           {/* Theme Color Grading */}
           <div className="absolute inset-0 bg-spider-red/10 mix-blend-color-burn"></div>

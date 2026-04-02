@@ -43,6 +43,23 @@ export default function FaceOffSection() {
       ref={sectionRef}
       className="relative w-full min-h-screen bg-spider-red halftone-overlay selection:bg-spider-yellow selection:text-spider-black font-mono overflow-hidden py-24 flex items-center justify-center"
     >
+      {/* ─── HUD SEPARATOR ─────────────────────────────────────────────── */}
+      <div className="absolute top-0 left-0 w-full h-16 pointer-events-none z-50 flex flex-col items-center">
+        {/* Glowing Thread Line */}
+        <div className="w-full h-px bg-linear-to-r from-transparent via-spider-yellow/40 to-transparent shadow-[0_0_12px_rgba(255,214,0,0.3)]" />
+        
+        {/* Minimalist Data Tag */}
+        <div className="mt-2 flex items-center gap-10">
+          <div className="h-[4px] w-px bg-spider-yellow/30" />
+          <div className="bg-spider-black/5 backdrop-blur-[2px] border border-spider-black/10 px-4 py-1 flex items-center gap-3">
+            <div className="w-1.5 h-1.5 rounded-full bg-spider-yellow animate-pulse" />
+            <span className="font-mono text-[7px] md:text-[8px] tracking-[0.5em] text-spider-black/60 font-bold uppercase">
+              Datalink // Established
+            </span>
+          </div>
+          <div className="h-[4px] w-px bg-spider-yellow/30" />
+        </div>
+      </div>
       {/* BACKGROUND DECORATIVE ELEMENTS */}
       <div 
         className={`absolute inset-0 pointer-events-none flex items-center justify-center font-bangers text-[60vh] text-spider-white leading-none overflow-hidden select-none z-0 transition-opacity duration-1000 ease-out ${
@@ -54,12 +71,7 @@ export default function FaceOffSection() {
 
       {/* INFINITE MARQUEE */}
       <div className="absolute bottom-8 md:bottom-16 left-0 w-full overflow-hidden pointer-events-none z-5 opacity-[0.15]">
-        <style>{`
-          @keyframes shadowMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
+
         <div className="flex w-max" style={{ animation: "shadowMarquee 40s linear infinite" }}>
           {Array(4).fill(null).map((_, i) => (
             <div key={i} className="flex items-center font-bangers text-3xl md:text-5xl lg:text-[4vw] text-spider-black tracking-widest leading-none whitespace-nowrap">
@@ -77,6 +89,8 @@ export default function FaceOffSection() {
         <img
           src="/assets/w-mask-fo.png"
           alt="Masked Spider-Man"
+          loading="lazy"
+          decoding="async"
           className={`w-full h-full object-cover object-bottom drop-shadow-[20px_0_35px_rgba(0,0,0,0.3)] transition-all duration-1000 ease-out delay-100 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-16 opacity-0"
           }`}
@@ -88,6 +102,8 @@ export default function FaceOffSection() {
         <img
           src="/assets/wo-mask-fo.png"
           alt="Miles Morales Unmasked"
+          loading="lazy"
+          decoding="async"
           className={`w-full h-full object-cover object-bottom drop-shadow-[-20px_0_35px_rgba(0,0,0,0.3)] transition-all duration-1000 ease-out delay-100 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-16 opacity-0"
           }`}
@@ -172,6 +188,8 @@ export default function FaceOffSection() {
         <img
           src="/assets/w-mask-fo.png"
           alt="Masked Spider-Man"
+          loading="lazy"
+          decoding="async"
           className={`w-1/2 h-full object-cover object-bottom drop-shadow-[5px_0_15px_rgba(0,0,0,0.3)] transition-all duration-1000 ease-out delay-100 ${
             isVisible ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
           }`}
@@ -179,6 +197,8 @@ export default function FaceOffSection() {
         <img
           src="/assets/wo-mask-fo.png"
           alt="Miles Morales Unmasked"
+          loading="lazy"
+          decoding="async"
           className={`w-1/2 h-full object-cover object-bottom drop-shadow-[-5px_0_15px_rgba(0,0,0,0.3)] transition-all duration-1000 ease-out delay-100 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
           }`}

@@ -31,3 +31,18 @@ body::-webkit-scrollbar {
   background-size: 6px 6px;
   opacity: 0.07;
 }
+
+/* Marquee animation — moved from inline <style> for better performance */
+@keyframes shadowMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Respect user motion preferences — disable heavy animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

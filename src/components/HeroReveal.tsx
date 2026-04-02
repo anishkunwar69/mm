@@ -12,9 +12,8 @@ const SpiderMenuIcon = ({ open }: { open: boolean }) => (
     {/* When closed — draw the spider */}
     <svg
       viewBox="0 0 24 24"
-      className={`absolute inset-0 w-full h-full transition-all duration-300 ease-in-out ${
-        open ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
-      }`}
+      className={`absolute inset-0 w-full h-full transition-all duration-300 ease-in-out ${open ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
+        }`}
       fill="none"
     >
       {/* Body */}
@@ -22,22 +21,21 @@ const SpiderMenuIcon = ({ open }: { open: boolean }) => (
       {/* Head */}
       <circle cx="12" cy="7.5" r="1.8" fill="currentColor" />
       {/* Legs — 4 pairs */}
-      <line x1="9.5" y1="10" x2="3" y2="7"  stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+      <line x1="9.5" y1="10" x2="3" y2="7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
       <line x1="9.5" y1="12" x2="2" y2="11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
       <line x1="9.5" y1="14" x2="3" y2="17" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
-      <line x1="10"  y1="15.5" x2="5" y2="21" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
-      <line x1="14.5" y1="10" x2="21" y2="7"  stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+      <line x1="10" y1="15.5" x2="5" y2="21" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+      <line x1="14.5" y1="10" x2="21" y2="7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
       <line x1="14.5" y1="12" x2="22" y2="11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
       <line x1="14.5" y1="14" x2="21" y2="17" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
-      <line x1="14"  y1="15.5" x2="19" y2="21" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
+      <line x1="14" y1="15.5" x2="19" y2="21" stroke="currentColor" strokeWidth="1.2" strokeLinecap="square" />
     </svg>
 
     {/* When open — angular X (comic-panel style) */}
     <svg
       viewBox="0 0 24 24"
-      className={`absolute inset-0 w-full h-full transition-all duration-300 ease-in-out ${
-        open ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
-      }`}
+      className={`absolute inset-0 w-full h-full transition-all duration-300 ease-in-out ${open ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
+        }`}
       fill="none"
     >
       <line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" />
@@ -52,18 +50,18 @@ const SpiderMenuIcon = ({ open }: { open: boolean }) => (
 ───────────────────────────────────────────────────────────────────── */
 // Pre-computed spoke endpoints — avoids SSR/client floating-point mismatch
 const WEB_SPOKES: { x2: number; y2: number }[] = [
-  { x2: 400,   y2: 200   }, // 0°
-  { x2: 373.2, y2: 300   }, // 30°
-  { x2: 300,   y2: 373.2 }, // 60°
-  { x2: 200,   y2: 400   }, // 90°
-  { x2: 100,   y2: 373.2 }, // 120°
-  { x2: 26.8,  y2: 300   }, // 150°
-  { x2: 0,     y2: 200   }, // 180°
-  { x2: 26.8,  y2: 100   }, // 210°
-  { x2: 100,   y2: 26.8  }, // 240°
-  { x2: 200,   y2: 0     }, // 270°
-  { x2: 300,   y2: 26.8  }, // 300°
-  { x2: 373.2, y2: 100   }, // 330°
+  { x2: 400, y2: 200 }, // 0°
+  { x2: 373.2, y2: 300 }, // 30°
+  { x2: 300, y2: 373.2 }, // 60°
+  { x2: 200, y2: 400 }, // 90°
+  { x2: 100, y2: 373.2 }, // 120°
+  { x2: 26.8, y2: 300 }, // 150°
+  { x2: 0, y2: 200 }, // 180°
+  { x2: 26.8, y2: 100 }, // 210°
+  { x2: 100, y2: 26.8 }, // 240°
+  { x2: 200, y2: 0 }, // 270°
+  { x2: 300, y2: 26.8 }, // 300°
+  { x2: 373.2, y2: 100 }, // 330°
 ];
 
 const WebWatermark = () => (
@@ -73,8 +71,8 @@ const WebWatermark = () => (
     style={{ opacity: 0.06 }}
   >
     {/* Rings */}
-    <circle cx="200" cy="200" r="40"  fill="none" stroke="#0A0A0A" strokeWidth="1" />
-    <circle cx="200" cy="200" r="80"  fill="none" stroke="#0A0A0A" strokeWidth="1" />
+    <circle cx="200" cy="200" r="40" fill="none" stroke="#0A0A0A" strokeWidth="1" />
+    <circle cx="200" cy="200" r="80" fill="none" stroke="#0A0A0A" strokeWidth="1" />
     <circle cx="200" cy="200" r="120" fill="none" stroke="#0A0A0A" strokeWidth="1" />
     <circle cx="200" cy="200" r="160" fill="none" stroke="#0A0A0A" strokeWidth="1" />
     <circle cx="200" cy="200" r="200" fill="none" stroke="#0A0A0A" strokeWidth="1" />
@@ -94,32 +92,35 @@ const WebCorner = ({ position }: { position: "tl" | "br" }) => {
   return (
     <svg
       viewBox="0 0 40 40"
-      className={`absolute w-8 h-8 pointer-events-none ${
-        isTopLeft ? "top-0 left-0" : "bottom-0 right-0 rotate-180"
-      }`}
+      className={`absolute w-8 h-8 pointer-events-none ${isTopLeft ? "top-0 left-0" : "bottom-0 right-0 rotate-180"
+        }`}
       style={{ opacity: 0.25 }}
     >
-      <line x1="0" y1="0" x2="40" y2="0"  stroke="#FFD600" strokeWidth="1.5" />
-      <line x1="0" y1="0" x2="0"  y2="40" stroke="#FFD600" strokeWidth="1.5" />
+      <line x1="0" y1="0" x2="40" y2="0" stroke="#FFD600" strokeWidth="1.5" />
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#FFD600" strokeWidth="1.5" />
       <line x1="0" y1="0" x2="22" y2="22" stroke="#FFD600" strokeWidth="0.8" />
     </svg>
   );
 };
 
+/* Pure math helper — stable reference outside component to avoid re-renders */
+const lerp = (start: number, end: number, factor: number) =>
+  start + (end - start) * factor;
+
 /* ═══════════════════════════════════════════════════════════════════
    MAIN COMPONENT
 ═══════════════════════════════════════════════════════════════════ */
 export default function HeroReveal() {
-  const containerRef  = useRef<HTMLDivElement>(null);
-  const topImageRef   = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const topImageRef = useRef<HTMLDivElement>(null);
   const bottomImageRef = useRef<HTMLDivElement>(null);
-  const rafRef        = useRef<number | null>(null);
+  const rafRef = useRef<number | null>(null);
 
-  const targetProgress  = useRef(0);
+  const targetProgress = useRef(0);
   const currentProgress = useRef(0);
 
-  const [isLoaded,  setIsLoaded]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 50);
@@ -133,59 +134,74 @@ export default function HeroReveal() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const targetMouseX  = useRef(0);
-  const targetMouseY  = useRef(0);
+  const targetMouseX = useRef(0);
+  const targetMouseY = useRef(0);
   const currentMouseX = useRef(0);
   const currentMouseY = useRef(0);
+  const isVisibleRef = useRef(true);
 
-  const lerp = (start: number, end: number, factor: number) =>
-    start + (end - start) * factor;
-
-  const animateRef = useRef<(() => void) | null>(null);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const animate = useCallback(() => {
+    if (!isVisibleRef.current) {
+      rafRef.current = requestAnimationFrame(animate);
+      return;
+    }
     if (topImageRef.current && bottomImageRef.current) {
       currentProgress.current = lerp(currentProgress.current, targetProgress.current, 0.15);
       const p = currentProgress.current;
 
       const blurAmount = 15;
-      const startPos   = -blurAmount;
-      const endPos     = 100 + blurAmount;
+      const startPos = -blurAmount;
+      const endPos = 100 + blurAmount;
       const currentPos = startPos + (endPos - startPos) * p;
 
       const bottomEdge = currentPos - blurAmount;
-      const topEdge    = currentPos + blurAmount;
+      const topEdge = currentPos + blurAmount;
 
-      const maskStrTop    = `linear-gradient(to top, transparent ${bottomEdge}%, black ${topEdge}%)`;
+      const maskStrTop = `linear-gradient(to top, transparent ${bottomEdge}%, black ${topEdge}%)`;
       const maskStrBottom = `linear-gradient(to top, black ${bottomEdge}%, transparent ${topEdge}%)`;
 
-      topImageRef.current.style.maskImage          = maskStrTop;
+      topImageRef.current.style.maskImage = maskStrTop;
       (topImageRef.current.style as any).webkitMaskImage = maskStrTop;
-      bottomImageRef.current.style.maskImage       = maskStrBottom;
+      bottomImageRef.current.style.maskImage = maskStrBottom;
       (bottomImageRef.current.style as any).webkitMaskImage = maskStrBottom;
 
       currentMouseX.current = lerp(currentMouseX.current, targetMouseX.current, 0.05);
-      currentMouseY.current = lerp(currentMouseY.current, targetMouseY.current, 0.05);
-
-      const maxOffset   = 20;
-      const transformStr = `translate(${currentMouseX.current * maxOffset}px, ${currentMouseY.current * maxOffset}px) scale(1.02)`;
-      topImageRef.current.style.transform    = transformStr;
+      const maxOffset = 20;
+      const transformStr = `translate3d(${currentMouseX.current * maxOffset}px, 0, 0) scale(1.02)`;
+      topImageRef.current.style.transform = transformStr;
       bottomImageRef.current.style.transform = transformStr;
     }
-    if (animateRef.current) rafRef.current = requestAnimationFrame(animateRef.current);
-  }, [lerp]);
+    rafRef.current = requestAnimationFrame(animate);
+  }, []);
 
-  useEffect(() => { animateRef.current = animate; }, [animate]);
+  /* Pause rAF work when hero scrolls off-screen */
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    /* Only track mouse on pointer devices — skip overhead on touch-only */
+    const isMobile = window.innerWidth < 768;
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+
     const handleMouseMove = (e: MouseEvent) => {
-      targetMouseX.current = (e.clientX / window.innerWidth)  * 2 - 1;
-      targetMouseY.current = (e.clientY / window.innerHeight) * 2 - 1;
+      targetMouseX.current = (e.clientX / window.innerWidth) * 2 - 1;
     };
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+
+    if (hasHover && !isMobile) {
+      window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    }
+
     rafRef.current = requestAnimationFrame(animate);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      if (hasHover && !isMobile) window.removeEventListener("mousemove", handleMouseMove);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [animate]);
@@ -204,9 +220,8 @@ export default function HeroReveal() {
         <div className="absolute top-[6%] sm:top-[8%] left-0 w-full text-center pointer-events-none z-0 px-2 select-none overflow-hidden">
           <h1
             style={{ fontSize: "clamp(3.5rem, 18vw, 16rem)" }}
-            className={`font-bangers leading-none text-spider-black drop-shadow-sm transition-all duration-1500 ease-out ${
-              isLoaded ? "opacity-10 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
-            }`}
+            className={`font-bangers leading-none text-spider-black drop-shadow-sm transition-all duration-1500 ease-out ${isLoaded ? "opacity-10 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+              }`}
           >
             MILES MORALES
           </h1>
@@ -219,7 +234,9 @@ export default function HeroReveal() {
           style={{ maskImage: "linear-gradient(to top, black -30%, transparent 0%)", WebkitMaskImage: "linear-gradient(to top, black -30%, transparent 0%)" }}
         >
           <Image src="/assets/w-mask-try.png" alt="Spider-Man with Mask" fill
-            className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`} priority />
+            className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`} 
+            style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
+            priority />
         </div>
 
         {/* ─── TOP IMAGE: Miles unmasked ──────────────────────────────────── */}
@@ -228,8 +245,10 @@ export default function HeroReveal() {
           className="absolute inset-0 w-full h-full z-20 pointer-events-none"
           style={{ maskImage: "linear-gradient(to top, transparent -30%, black 0%)", WebkitMaskImage: "linear-gradient(to top, transparent -30%, black 0%)" }}
         >
-          <Image src="/assets/wo-mask-try-2.png" alt="Miles without Mask" fill
-            className={`object-cover transition-opacity duration-1000 ease-in-out delay-200 ${isLoaded ? "opacity-100" : "opacity-0"}`} priority />
+          <Image src="/assets/wo-mask-3.png" alt="Miles without Mask" fill
+            className={`object-cover transition-opacity duration-1000 ease-in-out delay-200 ${isLoaded ? "opacity-100" : "opacity-0"}`} 
+            style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
+            priority />
         </div>
 
         {/* ─── HOVER HITBOX ───────────────────────────────────────────────── */}
@@ -251,9 +270,8 @@ export default function HeroReveal() {
 
           {/* ── HEADER ──────────────────────────────────────────────────── */}
           <header
-            className={`flex justify-between items-start w-full pointer-events-auto transition-all duration-1000 ease-out delay-500 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-            }`}
+            className={`flex justify-between items-start w-full pointer-events-auto transition-all duration-1000 ease-out delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+              }`}
           >
             {/* Logo */}
             <div className="flex flex-col gap-1 shrink-0">
@@ -292,9 +310,8 @@ export default function HeroReveal() {
           {/* ── BOTTOM INFO CARD ────────────────────────────────────── */}
           <div className="flex flex-col sm:flex-row justify-between items-end gap-3 sm:gap-4 w-full">
             <div
-              className={`pointer-events-auto w-full sm:w-auto sm:max-w-[280px] border-[0.5px] border-spider-black/40 bg-spider-red/30 backdrop-blur-sm shadow-sm transition-all duration-1000 ease-out delay-700 ${
-                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-              }`}
+              className={`pointer-events-auto w-full sm:w-auto sm:max-w-[280px] border-[0.5px] border-spider-black/40 bg-spider-red/30 backdrop-blur-sm shadow-sm transition-all duration-1000 ease-out delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
               style={{ padding: "clamp(0.75rem, 2.5vw, 1.25rem)" }}
             >
               <div className="flex justify-between items-center mb-2 sm:mb-3">
@@ -334,9 +351,8 @@ export default function HeroReveal() {
             Slides down from top-0. paddingTop = ~3.75rem to clear the header.
         ──────────────────────────────────────────────────────────────────────── */}
         <div
-          className={`sm:hidden absolute top-0 left-0 w-full z-40 pointer-events-auto transition-[transform,opacity] duration-500 ${
-            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-          }`}
+          className={`sm:hidden absolute top-0 left-0 w-full z-40 pointer-events-auto transition-[transform,opacity] duration-500 ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+            }`}
           style={{ transitionTimingFunction: menuOpen ? "cubic-bezier(0.16,1,0.3,1)" : "cubic-bezier(0.7,0,0.84,0)" }}
         >
           {/* ── Panel shell ──────────────────────────────────────────── */}
@@ -345,7 +361,7 @@ export default function HeroReveal() {
             style={{
               paddingTop: "1.75rem",
               paddingBottom: "clamp(1.75rem, 6vw, 2.5rem)",
-              paddingLeft:  "clamp(1.25rem, 6vw, 2rem)",
+              paddingLeft: "clamp(1.25rem, 6vw, 2rem)",
               paddingRight: "clamp(1.25rem, 6vw, 2rem)",
             }}
           >
@@ -374,16 +390,15 @@ export default function HeroReveal() {
             <nav className="relative flex flex-col gap-0 z-10">
               {[
                 { label: "MANIFESTO", delay: "delay-[60ms]" },
-                { label: "ORIGINS",   delay: "delay-[120ms]" },
+                { label: "ORIGINS", delay: "delay-[120ms]" },
                 { label: "SUIT TECH", delay: "delay-[180ms]" },
               ].map(({ label, delay }) => (
                 <a
                   key={label}
                   href="#"
                   onClick={() => setMenuOpen(false)}
-                  className={`group flex items-center justify-between py-4 border-b border-spider-white/8 transition-all duration-300 ease-out ${delay} ${
-                    menuOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-                  }`}
+                  className={`group flex items-center justify-between py-4 border-b border-spider-white/8 transition-all duration-300 ease-out ${delay} ${menuOpen ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                    }`}
                 >
                   <span className="font-bangers text-4xl tracking-widest text-spider-white group-hover:text-spider-yellow transition-colors duration-200 leading-none">
                     {label}
@@ -398,9 +413,8 @@ export default function HeroReveal() {
 
             {/* ── Footer row inside menu ──────────────────────── */}
             <div
-              className={`relative z-10 mt-5 flex justify-between items-center transition-all duration-300 delay-240 ${
-                menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-              }`}
+              className={`relative z-10 mt-5 flex justify-between items-center transition-all duration-300 delay-240 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+                }`}
             >
               <span className="font-mono text-[0.55rem] tracking-[0.25em] uppercase text-spider-white/25">
                 EARTH-1610 // BROOKLYN

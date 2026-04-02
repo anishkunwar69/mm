@@ -117,15 +117,14 @@ export default function ComicScrollSection() {
     >
       {/* Sticky viewport — pinned to screen */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        
+
         {/* Cinematic Background Story Text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
           {BG_TEXTS.map((text, i) => (
             <h2
               key={i}
-              className={`absolute font-bangers text-[24vw] leading-none text-spider-black select-none whitespace-nowrap transition-all duration-1000 ease-out ${
-                i === activeBeat ? 'opacity-[0.08] scale-100 blur-0' : 'opacity-0 scale-[0.8] blur-md'
-              }`}
+              className={`absolute font-bangers text-[24vw] leading-none text-spider-black select-none whitespace-nowrap transition-all duration-1000 ease-out ${i === activeBeat ? 'opacity-[0.08] scale-100 blur-0' : 'opacity-0 scale-[0.8] blur-md'
+                }`}
             >
               {text}
             </h2>
@@ -157,11 +156,10 @@ export default function ComicScrollSection() {
             </div>
             <div className="flex items-center gap-1.5 drop-shadow-sm">
               {BEATS.map((_, i) => (
-                <div 
-                  key={i} 
-                  className={`h-[3px] rounded-full transition-all duration-300 ease-out ${
-                    i === activeBeat ? 'w-5 bg-spider-yellow opacity-100' : 'w-2.5 bg-spider-white opacity-30'
-                  }`}
+                <div
+                  key={i}
+                  className={`h-[3px] rounded-full transition-all duration-300 ease-out ${i === activeBeat ? 'w-5 bg-spider-yellow opacity-100' : 'w-2.5 bg-spider-white opacity-30'
+                    }`}
                 />
               ))}
             </div>
@@ -183,72 +181,71 @@ export default function ComicScrollSection() {
           {BEATS.map((beat, i) => {
             const isActive = i === activeBeat;
             return (
-            <div
-              key={i}
-              className={`absolute transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] ${isActive ? 'z-50' : 'z-10'}`}
-              style={{
-                // Position relative to canvas center (100vw, 250vh)
-                left: `calc(100vw + ${beat.x}vw)`,
-                top: `calc(250vh + ${beat.y}vh)`,
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              {/* Depth of field / Slam wrapper */}
-              <div 
-                className={`relative transition-all ${
-                  isActive 
-                    ? 'duration-200 ease-[cubic-bezier(0.2,0,0.1,1)] scale-100 translate-y-0 opacity-100 grayscale-0 blur-0' 
-                    : 'duration-100 ease-out scale-[1.08] -translate-y-[10px] opacity-50 grayscale-[0.6] blur-[2px]'
-                }`}
-              >
-                {/* Comic panel frame */}
               <div
-                className="relative shadow-[12px_12px_0px_#0A0A0A] border-4 border-spider-black bg-spider-yellow overflow-hidden z-10"
+                key={i}
+                className={`absolute transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] ${isActive ? 'z-50' : 'z-10'}`}
                 style={{
-                  width: "clamp(260px, 38vw, 500px)",
-                  height: "clamp(250px, 55vh, 580px)",
-                  transform: `rotate(${beat.rotate}deg)`,
+                  // Position relative to canvas center (100vw, 250vh)
+                  left: `calc(100vw + ${beat.x}vw)`,
+                  top: `calc(250vh + ${beat.y}vh)`,
+                  transform: "translate(-50%, -50%)",
                 }}
               >
-                <div className="absolute inset-0 z-10 pointer-events-none border border-spider-white/30 m-[3px] mix-blend-overlay" />
-                <img
-                  src={beat.img}
-                  alt={`Panel ${i + 1}`}
-                  className="w-full h-full object-cover filter contrast-[1.15] saturate-[1.2]"
-                />
-              </div>
+                {/* Depth of field / Slam wrapper */}
+                <div
+                  className={`relative transition-all ${isActive
+                      ? 'duration-200 ease-[cubic-bezier(0.2,0,0.1,1)] scale-100 translate-y-0 opacity-100 grayscale-0 blur-0'
+                      : 'duration-100 ease-out scale-[1.08] -translate-y-[10px] opacity-50 grayscale-[0.6] blur-[2px]'
+                    }`}
+                >
+                  {/* Comic panel frame */}
+                  <div
+                    className="relative shadow-[12px_12px_0px_#0A0A0A] border-4 border-spider-black bg-spider-yellow overflow-hidden z-10"
+                    style={{
+                      width: "clamp(260px, 38vw, 500px)",
+                      height: "clamp(250px, 55vh, 580px)",
+                      transform: `rotate(${beat.rotate}deg)`,
+                    }}
+                  >
+                    <div className="absolute inset-0 z-10 pointer-events-none border border-spider-white/30 m-[3px] mix-blend-overlay" />
+                    <img
+                      src={beat.img}
+                      alt={`Panel ${i + 1}`}
+                      className="w-full h-full object-cover filter contrast-[1.15] saturate-[1.2]"
+                    />
+                  </div>
 
-              {/* Caption box */}
-              <div
-                className="absolute z-20 bg-spider-white border-[3px] border-spider-black shadow-[6px_6px_0px_#E8272A] p-4 md:p-5 flex flex-col gap-2"
-                style={{
-                  width: "clamp(140px, 24vw, 340px)",
-                  bottom: "-5vh",
-                  ...(i % 2 === 0
-                    ? { right: "-8vw" }
-                    : { left: "-8vw" }),
-                  transform: `rotate(${-beat.rotate * 0.5}deg)`,
-                }}
-              >
-                <h3 className="font-bangers text-xl md:text-3xl lg:text-4xl leading-[0.9] text-spider-black tracking-wide">
-                  {beat.heading.split("\n").map((line, li) => (
-                    <span key={li}>
-                      {line}
-                      <br />
-                    </span>
-                  ))}
-                </h3>
-                <div className="w-6 md:w-8 h-1 bg-spider-yellow" />
-                <p className="font-mono text-[0.55rem] md:text-xs font-bold text-spider-black/90 leading-tight">
-                  {beat.story}
-                </p>
-                <div className="absolute -bottom-3 -right-3 bg-spider-black text-spider-yellow font-mono text-[0.4rem] md:text-[0.5rem] tracking-widest px-2 py-0.5 font-bold uppercase rotate-[-5deg]">
-                  EARTH-1610
+                  {/* Caption box */}
+                  <div
+                    className="absolute z-20 bg-spider-white border-[3px] border-spider-black shadow-[6px_6px_0px_#E8272A] p-4 md:p-5 flex flex-col gap-2"
+                    style={{
+                      width: "clamp(140px, 24vw, 340px)",
+                      bottom: "-5vh",
+                      ...(i % 2 === 0
+                        ? { right: "-8vw" }
+                        : { left: "-8vw" }),
+                      transform: `rotate(${-beat.rotate * 0.5}deg)`,
+                    }}
+                  >
+                    <h3 className="font-bangers text-xl md:text-3xl lg:text-4xl leading-[0.9] text-spider-black tracking-wide">
+                      {beat.heading.split("\n").map((line, li) => (
+                        <span key={li}>
+                          {line}
+                          <br />
+                        </span>
+                      ))}
+                    </h3>
+                    <div className="w-6 md:w-8 h-1 bg-spider-yellow" />
+                    <p className="font-mono text-[0.55rem] md:text-xs font-bold text-spider-black/90 leading-tight">
+                      {beat.story}
+                    </p>
+                    <div className="absolute -bottom-3 -right-3 bg-spider-black text-spider-yellow font-mono text-[0.4rem] md:text-[0.5rem] tracking-widest px-2 py-0.5 font-bold uppercase rotate-[-5deg]">
+                      EARTH-1610
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
-              </div>
-            </div>
             );
           })}
         </div>
