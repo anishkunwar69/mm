@@ -194,8 +194,8 @@ export default function ComicScrollSection() {
                 {/* Depth of field / Slam wrapper */}
                 <div
                   className={`relative transition-all ${isActive
-                      ? 'duration-200 ease-[cubic-bezier(0.2,0,0.1,1)] scale-100 translate-y-0 opacity-100 grayscale-0 blur-0'
-                      : 'duration-100 ease-out scale-[1.08] -translate-y-[10px] opacity-50 grayscale-[0.6] blur-[2px]'
+                    ? 'duration-200 ease-[cubic-bezier(0.2,0,0.1,1)] scale-100 translate-y-0 opacity-100 grayscale-0 blur-0'
+                    : 'duration-100 ease-out scale-[1.08] -translate-y-[10px] opacity-50 grayscale-[0.6] blur-[2px]'
                     }`}
                 >
                   {/* Comic panel frame */}

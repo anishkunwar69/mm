@@ -234,7 +234,7 @@ export default function HeroReveal() {
           style={{ maskImage: "linear-gradient(to top, black -30%, transparent 0%)", WebkitMaskImage: "linear-gradient(to top, black -30%, transparent 0%)" }}
         >
           <Image src="/assets/w-mask-try.png" alt="Spider-Man with Mask" fill
-            className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`} 
+            className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`}
             style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
             priority />
         </div>
@@ -246,7 +246,7 @@ export default function HeroReveal() {
           style={{ maskImage: "linear-gradient(to top, transparent -30%, black 0%)", WebkitMaskImage: "linear-gradient(to top, transparent -30%, black 0%)" }}
         >
           <Image src="/assets/wo-mask-3.png" alt="Miles without Mask" fill
-            className={`object-cover transition-opacity duration-1000 ease-in-out delay-200 ${isLoaded ? "opacity-100" : "opacity-0"}`} 
+            className={`object-cover transition-opacity duration-1000 ease-in-out delay-200 ${isLoaded ? "opacity-100" : "opacity-0"}`}
             style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
             priority />
         </div>
