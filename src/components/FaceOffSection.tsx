@@ -74,6 +74,7 @@ export default function FaceOffSection() {
         </div>
       </div>
 
+
       {/* LEFT IMAGE - Spiderman With Mask */}
       <div className="absolute left-0 bottom-0 w-[45vw] lg:w-[40vw] xl:w-[35vw] h-[85vh] lg:h-[95vh] z-10 hidden md:block pointer-events-none overflow-hidden">
         <img
@@ -85,7 +86,6 @@ export default function FaceOffSection() {
             }`}
         />
       </div>
-
       {/* RIGHT IMAGE - Miles Morales Without Mask */}
       <div className="absolute right-0 bottom-0 w-[45vw] lg:w-[40vw] xl:w-[35vw] h-[85vh] lg:h-[95vh] z-10 hidden md:block pointer-events-none overflow-hidden">
         <img
@@ -126,7 +126,8 @@ export default function FaceOffSection() {
                 className="font-bangers tracking-wide text-spider-black leading-none opacity-80 whitespace-nowrap"
                 style={{ fontSize: "clamp(1.8rem, 7vw, 3rem)" }} // Base font size
               >
-                <span className="md:text-[clamp(1.4rem,4vw,4.375rem)]">SPIDER-MANNN</span>
+                <span className="inline md:hidden md:text-[clamp(1.4rem,4vw,4.375rem)]">SPIDER-MAN</span>
+                <span className="hidden md:inline md:text-[clamp(1.4rem,4vw,4.375rem)]">SPIDER-MANNN</span>
               </h3>
             </div>
 
@@ -146,7 +147,7 @@ export default function FaceOffSection() {
               </div>
 
               <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-spider-black/20 w-full max-w-[200px] flex justify-center md:justify-end">
-                <span className="text-[0.65rem] md:text-xs text-spider-black/50 tracking-[0.2em] font-bold"><span className="text-spider-black">THREAT</span> / MULTIVERSE</span>
+                <span className="text-[0.65rem] md:text-xs text-spider-black/50 tracking-[0.2em] font-bold"><span className="">THREAT</span> / MULTIVERSE</span>
               </div>
             </div>
           </div>

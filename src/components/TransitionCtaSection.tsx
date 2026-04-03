@@ -84,7 +84,7 @@ export default function TransitionCtaSection() {
       // 1. ANOMALY WARNING TEXT (0.0 -> 0.20)
       if (anomalyTextRef.current) {
         const blink = Math.sin(p * 200) > 0 ? 1 : 0.2;
-        const op = p < 0.2 ? blink : 0;
+        const op = p > 0.01 && p < 0.2 ? blink : 0;
         anomalyTextRef.current.style.opacity = op.toString();
       }
 

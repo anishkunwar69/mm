@@ -214,7 +214,7 @@ export default function HeroReveal() {
             position: "absolute",
             bottom: 0,
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-51%)",
             height: "100%",
             width: "min(88vmax, 780px)",
           }}>
@@ -235,7 +235,7 @@ export default function HeroReveal() {
             position: "absolute",
             bottom: 0,
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-51%)",
             height: "100%",
             width: "min(88vmax, 780px)",
           }}>
