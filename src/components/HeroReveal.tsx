@@ -412,7 +412,7 @@ export default function HeroReveal() {
 
             {/* ── Footer row inside menu ──────────────────────── */}
             <div
-              className={`relative z-10 mt-5 flex justify-between items-center transition-all duration-300 delay-240 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              className={`relative z-10 mt-5 flex justify-between items-center transition-all duration-300 delay-240 pb-3 ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
                 }`}
             >
               <span className="font-mono text-[0.55rem] tracking-[0.25em] uppercase text-spider-white/25">
