@@ -207,7 +207,7 @@ export default function HeroReveal() {
         {/* ─── BOTTOM IMAGE: masked Spider-Man ───────────────────────────── */}
         <div
           ref={bottomImageRef}
-          className="absolute inset-0 w-full h-full z-10 pointer-events-none top-8"
+          className="absolute inset-0 w-full h-full z-10 pointer-events-none top-7"
           style={{ maskImage: "linear-gradient(to top, black -30%, transparent 0%)", WebkitMaskImage: "linear-gradient(to top, black -30%, transparent 0%)" }}
         >
           <div 
