@@ -134,10 +134,6 @@ export default function HeroReveal() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const targetMouseX = useRef(0);
-  const targetMouseY = useRef(0);
-  const currentMouseX = useRef(0);
-  const currentMouseY = useRef(0);
   const isVisibleRef = useRef(true);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -147,7 +143,7 @@ export default function HeroReveal() {
       return;
     }
     if (topImageRef.current && bottomImageRef.current) {
-      currentProgress.current = lerp(currentProgress.current, targetProgress.current, 0.15);
+      currentProgress.current = lerp(currentProgress.current, targetProgress.current, 0.06);
       const p = currentProgress.current;
 
       const blurAmount = 15;
@@ -166,11 +162,7 @@ export default function HeroReveal() {
       bottomImageRef.current.style.maskImage = maskStrBottom;
       (bottomImageRef.current.style as any).webkitMaskImage = maskStrBottom;
 
-      currentMouseX.current = lerp(currentMouseX.current, targetMouseX.current, 0.05);
-      const maxOffset = 20;
-      const transformStr = `translate3d(${currentMouseX.current * maxOffset}px, 0, 0) scale(1.02)`;
-      topImageRef.current.style.transform = transformStr;
-      bottomImageRef.current.style.transform = transformStr;
+
     }
     rafRef.current = requestAnimationFrame(animate);
   }, []);
@@ -187,23 +179,8 @@ export default function HeroReveal() {
   }, []);
 
   useEffect(() => {
-    /* Only track mouse on pointer devices — skip overhead on touch-only */
-    const isMobile = window.innerWidth < 768;
-    const hasHover = window.matchMedia("(hover: hover)").matches;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      targetMouseX.current = (e.clientX / window.innerWidth) * 2 - 1;
-    };
-
-    if (hasHover && !isMobile) {
-      window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    }
-
     rafRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (hasHover && !isMobile) window.removeEventListener("mousemove", handleMouseMove);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
   }, [animate]);
 
   /* shared nav link styles for the desktop inline nav */
@@ -230,13 +207,22 @@ export default function HeroReveal() {
         {/* ─── BOTTOM IMAGE: masked Spider-Man ───────────────────────────── */}
         <div
           ref={bottomImageRef}
-          className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+          className="absolute inset-0 w-full h-full z-10 pointer-events-none top-8"
           style={{ maskImage: "linear-gradient(to top, black -30%, transparent 0%)", WebkitMaskImage: "linear-gradient(to top, black -30%, transparent 0%)" }}
         >
-          <Image src="/assets/w-mask-try.png" alt="Spider-Man with Mask" fill
-            className={`object-cover transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`}
-            style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
-            priority />
+          <div style={{
+            position: "absolute",
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            height: "100%",
+            width: "min(88vmax, 780px)",
+          }}>
+            <Image src="/assets/a-m.png" alt="Spider-Man with Mask" fill
+              className={`object-contain object-bottom transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`}
+              style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
+              priority />
+          </div>
         </div>
 
         {/* ─── TOP IMAGE: Miles unmasked ──────────────────────────────────── */}
@@ -245,10 +231,19 @@ export default function HeroReveal() {
           className="absolute inset-0 w-full h-full z-20 pointer-events-none"
           style={{ maskImage: "linear-gradient(to top, transparent -30%, black 0%)", WebkitMaskImage: "linear-gradient(to top, transparent -30%, black 0%)" }}
         >
-          <Image src="/assets/wo-mask-3.png" alt="Miles without Mask" fill
-            className={`object-cover transition-opacity duration-1000 ease-in-out delay-200 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-            style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
-            priority />
+          <div style={{
+            position: "absolute",
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            height: "100%",
+            width: "min(88vmax, 780px)",
+          }}>
+            <Image src="/assets/a-um.png" alt="Miles without Mask" fill
+              className={`object-contain object-bottom transition-opacity duration-1000 ease-in-out delay-200 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+              style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
+              priority />
+          </div>
         </div>
 
         {/* ─── HOVER HITBOX ───────────────────────────────────────────────── */}
