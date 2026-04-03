@@ -222,8 +222,8 @@ export default function ComicScrollSection() {
                       width: "clamp(140px, 24vw, 340px)",
                       bottom: "-5vh",
                       ...(i % 2 === 0
-                        ? { right: "-8vw" }
-                        : { left: "-8vw" }),
+                        ? { left: "-8vw" }
+                        : { right: "-8vw" }),
                       transform: `rotate(${-beat.rotate * 0.5}deg)`,
                     }}
                   >
