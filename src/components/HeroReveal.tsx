@@ -210,14 +210,16 @@ export default function HeroReveal() {
           className="absolute inset-0 w-full h-full z-10 pointer-events-none top-8"
           style={{ maskImage: "linear-gradient(to top, black -30%, transparent 0%)", WebkitMaskImage: "linear-gradient(to top, black -30%, transparent 0%)" }}
         >
-          <div style={{
-            position: "absolute",
-            bottom: 0,
-            left: "50%",
-            transform: "translateX(-51%)",
-            height: "100%",
-            width: "min(88vmax, 780px)",
-          }}>
+          <div 
+            className="-translate-x-[51.3%] min-[540px]:-translate-x-[51%]"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: "50%",
+              height: "100%",
+              width: "min(88vmax, 780px)",
+            }}
+          >
             <Image src="/assets/a-m.png" alt="Spider-Man with Mask" fill
               className={`object-contain object-bottom transition-opacity duration-1000 ease-in-out ${isLoaded ? "opacity-100" : "opacity-0"}`}
               style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
@@ -231,14 +233,16 @@ export default function HeroReveal() {
           className="absolute inset-0 w-full h-full z-20 pointer-events-none"
           style={{ maskImage: "linear-gradient(to top, transparent -30%, black 0%)", WebkitMaskImage: "linear-gradient(to top, transparent -30%, black 0%)" }}
         >
-          <div style={{
-            position: "absolute",
-            bottom: 0,
-            left: "50%",
-            transform: "translateX(-51%)",
-            height: "100%",
-            width: "min(88vmax, 780px)",
-          }}>
+          <div 
+            className="-translate-x-[51.3%] min-[540px]:-translate-x-[51%]"
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: "50%",
+              height: "100%",
+              width: "min(88vmax, 780px)",
+            }}
+          >
             <Image src="/assets/a-um.png" alt="Miles without Mask" fill
               className={`object-contain object-bottom transition-opacity duration-1000 ease-in-out delay-200 ${isLoaded ? "opacity-100" : "opacity-0"}`}
               style={{ imageRendering: "-webkit-optimize-contrast", transform: "translateZ(0)" }}
