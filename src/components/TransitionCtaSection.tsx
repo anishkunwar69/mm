@@ -292,9 +292,8 @@ export default function TransitionCtaSection() {
               </span>
             </div>
             <div className="flex gap-4 md:gap-8 pointer-events-auto items-end">
-              <a href="#" className="hover:text-spider-yellow hover:-translate-y-1 transition-all underline underline-offset-4">X / TWITTER</a>
-              <a href="#" className="hover:text-spider-yellow hover:-translate-y-1 transition-all underline underline-offset-4">DRIBBBLE</a>
-              <a href="#" className="hover:text-spider-yellow hover:-translate-y-1 transition-all underline underline-offset-4">LINKEDIN</a>
+              <a href="https://x.com/anishkunwar69" className="hover:text-spider-yellow hover:-translate-y-1 transition-all underline underline-offset-4">X / TWITTER</a>
+              <a href="https://www.instagram.com/anishkunwar_21/" className="hover:text-spider-yellow hover:-translate-y-1 transition-all underline underline-offset-4">INSTAGRAM</a>
             </div>
           </div>
 
