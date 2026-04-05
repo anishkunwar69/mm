@@ -146,7 +146,7 @@ export default function ComicScrollSection() {
               THE SPIDER-VERSE FILES
             </h4>
             <p className="font-mono text-[9px] md:text-[10px] text-spider-yellow uppercase font-bold tracking-[0.3em] drop-shadow-sm">
-              HOW A HERO IS BORN
+              HOW A HERO WAS BORN
             </p>
           </div>
 
